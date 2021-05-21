@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Broker.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Mortgage Profiles</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateFunded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BorrowerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Term)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MortgageAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFileCommissions)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFunded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Term)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MortgageAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFileCommissions)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+    <th>
+        @Html.DisplayNameFor(model => model.CreatedDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.CreatedBy)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.LastUpdateDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.LastUpdatedBy)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Associate)
+    </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Associate.AssociateLastName)
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>

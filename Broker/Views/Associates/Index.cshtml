@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Broker.Models.Associate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Associate Profiles</h1>
+
+<p>
+    <a asp-action="Create">Create New Associate</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label @Html.DisplayNameFor(model => model.AssociateFirstName)>First Name</label>
+            </th>
+            <th>
+                <label @Html.DisplayNameFor(model => model.AssociateLastName)>Last Name</label>
+            </th>
+            <th>
+                <label @Html.DisplayNameFor(model => model.Company)>Company</label>
+            </th>
+            <th>
+                <label @Html.DisplayNameFor(model => model.DateOfPayment)>Date of Payment</label>
+            </th>
+            <th>
+                <label @Html.DisplayNameFor(model => model.SplitId)>Split Percentage</label> 
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssociateFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssociateLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SplitId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AssociateId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AssociateId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AssociateId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
