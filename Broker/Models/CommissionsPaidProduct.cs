@@ -17,5 +17,6 @@ namespace Broker.Models
         public string LastUpdatedBy { get; set; }
 
         public virtual CommissionsPaid CommissionsPaid { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

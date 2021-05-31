@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 #nullable disable
 
@@ -7,6 +8,12 @@ namespace Broker.Models
 {
     public partial class Product
     {
+        public Product()
+        {
+            CommissionsPaidProducts = new HashSet<CommissionsPaidProduct>();
+           
+        }
+
         public int ProductId { get; set; }
         public int AssociateId { get; set; }
         public string ApplicationNumber { get; set; }
@@ -22,6 +29,10 @@ namespace Broker.Models
         public string LastUpdateDate { get; set; }
         public string LastUpdatedBy { get; set; }
 
+        
+
         public virtual Associate Associate { get; set; }
+        public virtual ICollection<CommissionsPaidProduct> CommissionsPaidProducts { get; set; }
+
     }
 }

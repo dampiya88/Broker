@@ -7,36 +7,41 @@
 <h1>Mortgage Profiles</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create New Mortgage</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationNumber)
+                <label @Html.DisplayNameFor(model => model.ApplicationNumber)>Application Number</label>
+            </th>
+
+            <th>
+                <label @Html.DisplayNameFor(model => model.BorrowerName)>Borrower Name</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateFunded)
+                <label @Html.DisplayNameFor(model => model.Term)>Term</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BorrowerName)
+                <label @Html.DisplayNameFor(model => model.MortgageAmount)>Mortgage Amount</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TransactionType)
+                <label @Html.DisplayNameFor(model => model.CreatedDate)>Date Created</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductDescription)
+                <label @Html.DisplayNameFor(model => model.CreatedBy)>Created By</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Term)
+                <label @Html.DisplayNameFor(model => model.LastUpdateDate)>Last Updated Date</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MortgageAmount)
+                <label @Html.DisplayNameFor(model => model.LastUpdatedBy)>Last Updated By</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TotalFileCommissions)
+               <label @Html.DisplayNameFor(model => model.Associate)>Associate Name</label> 
             </th>
-            <th></th>
+
+
         </tr>
     </thead>
     <tbody>
@@ -46,62 +51,20 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ApplicationNumber)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateFunded)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.BorrowerName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransactionType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductDescription)
-            </td>
+
+
             <td>
                 @Html.DisplayFor(modelItem => item.Term)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MortgageAmount)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalFileCommissions)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a>
-            </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-<table class="table">
-    <thead>
-    <th>
-        @Html.DisplayNameFor(model => model.CreatedDate)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.CreatedBy)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.LastUpdateDate)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.LastUpdatedBy)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Associate)
-    </th>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
+
+
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
@@ -115,10 +78,34 @@
                 @Html.DisplayFor(modelItem => item.LastUpdatedBy)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Associate.AssociateFirstName)
                 @Html.DisplayFor(modelItem => item.Associate.AssociateLastName)
             </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+
         </tr>
         }
     </tbody>
-
 </table>
+<table class="table">
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+           
+            
+        </tr>
+        }
+    </tbody>
+   
+</table>
+

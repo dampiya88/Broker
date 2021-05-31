@@ -1,12 +1,10 @@
 ﻿@model Broker.Models.Product
 
+
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
-
-<h4>Product</h4>
+<h4>Edit Mortgage</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,68 +12,68 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProductId" />
             <div class="form-group">
-                <label asp-for="AssociateId" class="control-label"></label>
+                <label asp-for="AssociateId" class="control-label">Associate Name</label>
                 <select asp-for="AssociateId" class="form-control" asp-items="ViewBag.AssociateId"></select>
                 <span asp-validation-for="AssociateId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ApplicationNumber" class="control-label"></label>
+                <label asp-for="ApplicationNumber" class="control-label">Application Number</label>
                 <input asp-for="ApplicationNumber" class="form-control" />
                 <span asp-validation-for="ApplicationNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DateFunded" class="control-label"></label>
-                <input asp-for="DateFunded" class="form-control" />
+                <label asp-for="DateFunded" class="control-label">Date Funded</label>
+                <input type="date"asp-for="DateFunded" class="form-control" />
                 <span asp-validation-for="DateFunded" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BorrowerName" class="control-label"></label>
+                <label asp-for="BorrowerName" class="control-label">Borrower Name</label>
                 <input asp-for="BorrowerName" class="form-control" />
                 <span asp-validation-for="BorrowerName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TransactionType" class="control-label"></label>
+                <label asp-for="TransactionType" class="control-label">Transaction Type</label>
                 <input asp-for="TransactionType" class="form-control" />
                 <span asp-validation-for="TransactionType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductDescription" class="control-label"></label>
+                <label asp-for="ProductDescription" class="control-label">Product Description</label>
                 <input asp-for="ProductDescription" class="form-control" />
                 <span asp-validation-for="ProductDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Term" class="control-label"></label>
+                <label asp-for="Term" class="control-label">Term</label>
                 <input asp-for="Term" class="form-control" />
                 <span asp-validation-for="Term" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MortgageAmount" class="control-label"></label>
+                <label asp-for="MortgageAmount" class="control-label">Mortgage Amount</label>
                 <input asp-for="MortgageAmount" class="form-control" />
                 <span asp-validation-for="MortgageAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TotalFileCommissions" class="control-label"></label>
+                <label asp-for="TotalFileCommissions" class="control-label">Total File Commission</label>
                 <input asp-for="TotalFileCommissions" class="form-control" />
                 <span asp-validation-for="TotalFileCommissions" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
+                <label asp-for="CreatedDate" class="control-label">Created Date</label>
+                <input type="date" asp-for="CreatedDate" class="form-control" />
                 <span asp-validation-for="CreatedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
+                <label asp-for="CreatedBy" class="control-label">Created By</label>
                 <input asp-for="CreatedBy" class="form-control" />
                 <span asp-validation-for="CreatedBy" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastUpdateDate" class="control-label"></label>
-                <input asp-for="LastUpdateDate" class="form-control" />
+                <label asp-for="LastUpdateDate" class="control-label">Last Update Date</label>
+                <input type="date" asp-for="LastUpdateDate" class="form-control" />
                 <span asp-validation-for="LastUpdateDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastUpdatedBy" class="control-label"></label>
-                <input asp-for="LastUpdatedBy" class="form-control" />
+                <label asp-for="LastUpdatedBy" class="control-label">Last Updated By</label>
+                <input  asp-for="LastUpdatedBy" class="form-control" />
                 <span asp-validation-for="LastUpdatedBy" class="text-danger"></span>
             </div>
             <div class="form-group">

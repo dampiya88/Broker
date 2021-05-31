@@ -18,5 +18,6 @@ namespace Broker.Models
         public int CommissionSplitId { get; set; }
 
         public virtual Associate Associate { get; set; }
+        public virtual CommissionSplit CommissionSplit { get; set; }
     }
 }
