@@ -18,6 +18,7 @@ namespace Broker.Models
         public string AssociateLastName { get; set; }
         public string Company { get; set; }
         public int? SplitId { get; set; }
+              
 
         public virtual ICollection<AssociateCommission> AssociateCommissions { get; set; }
         public virtual ICollection<Product> Products { get; set; }

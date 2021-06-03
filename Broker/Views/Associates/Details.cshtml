@@ -4,33 +4,39 @@
     ViewData["Title"] = "Details";
 }
 
-<h4>Associate Details</h4>
+<h4>Details of @Html.DisplayFor(model => model.AssociateFirstName) </h4>
     <hr />
-    <dl class="row" >
-        
+    <dl class="row">
+
         <dt class="col-sm-2">
-            <label @Html.DisplayNameFor(model => model.AssociateFirstName)>First Name</label> 
+            <label @Html.DisplayNameFor(model => model.AssociateFirstName)>First Name</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.AssociateFirstName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label @Html.DisplayNameFor(model => model.AssociateLastName)>Last Name</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.AssociateLastName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Company)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Company)
         </dd>
 
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label @Html.DisplayNameFor(model => model.SplitId)>Split Percentage</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SplitId)
+        </dd>
+        <dt class="col-sm-2">
+            <label @Html.DisplayNameFor(model => model)>Split Percentage</label>
+        </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.SplitId)
         </dd>
     </dl>

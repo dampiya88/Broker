@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Broker.Models;
+using Microsoft.Data.SqlClient;
 
 namespace Broker.Controllers
 {
@@ -21,6 +22,7 @@ namespace Broker.Controllers
         // GET: Associates
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.Associates.ToListAsync());
         }
 
@@ -138,7 +140,9 @@ namespace Broker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            
             var associate = await _context.Associates.FindAsync(id);
+            
             _context.Associates.Remove(associate);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
