@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Broker.Models;
+using Broker.ViewModels;
 
 namespace Broker.Controllers
 {
@@ -21,7 +23,14 @@ namespace Broker.Controllers
         // GET: Associates
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Associates.ToListAsync());
+            
+
+            AssociateProductViewModel viewModel = new AssociateProductViewModel()
+            {
+                Products= await _context.Products.ToListAsync(),
+                Associates = await _context.Associates.ToListAsync()
+            };
+            return View(viewModel);
         }
 
         // GET: Associates/Details/5

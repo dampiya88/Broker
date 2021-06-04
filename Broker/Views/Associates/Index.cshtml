@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Broker.Models.Associate>
+﻿@model Broker.ViewModels.AssociateProductViewModel
 
 
 @{
@@ -14,48 +14,65 @@
     <thead>
         <tr>
             <th>
-                <label @Html.DisplayNameFor(model => model.AssociateFirstName)>First Name</label>
+                <label>First Name</label>
             </th>
             <th>
-                <label @Html.DisplayNameFor(model => model.AssociateLastName)>Last Name</label>
+                <label>Last Name</label>
             </th>
             <th>
-                <label @Html.DisplayNameFor(model => model.Company)>Company</label>
+                <label>Company</label>
             </th>
             <th>
-                <label @Html.DisplayNameFor(model => model.SplitId)>Current Commssion Split</label>
+                <label>Current Commission Split</label>
             </th>
             <th>
-                @*<label @Html.DisplayNameFor(model => model.TotalFileCommissions)> YTD commissions paid</label>*@
+                <label>YTD Total Sales</label>
             </th>
+            <th>
+                <label>YTD Total File Commissons</label>
+            </th>
+            <th>
+                <label>YTD Total Agent Commissions</label>
+            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Associates)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AssociateFirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AssociateLastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Company)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SplitId)
-                </td>
-                <td>
-                   @* @Html.DisplayFor(modelItem => item.TotalFileCommissions)*@
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.AssociateId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.AssociateId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.AssociateId">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssociateFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssociateLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SplitId)
+            </td>
+            <td>
+                @Model.Products.Sum(s => s.MortgageAmount)
+            </td>
+            <td>
+                @Model.Products.Sum(s => s.TotalFileCommissions)
+            </td>
+            <td>
+                @Model.Products.Sum(s => s.TotalFileCommissions* item.SplitId/100)
+            </td>
+
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AssociateId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AssociateId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AssociateId">Delete</a>
+            </td>
+        </tr>
         }
-    </tbody>
-</table>
+       
+        </tbody>
+
+      </table>
