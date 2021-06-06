@@ -5,7 +5,15 @@
 }
 
 <h3>Mortgage Profiles</h3>
-
+<form asp-action="Index" method="get">
+    <div>
+        <p>
+            Find Mortgage:<input type="text" name="searchingString" value="" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <a asp-action="Index">Remove Filter</a>
+        </p>
+    </div>
+</form>
 <p>
     <a asp-action="Create">Create New Mortgage</a>
 </p>

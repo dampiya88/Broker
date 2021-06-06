@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Broker.ViewModels
 {
-    public class AssociateProductViewModel
+    public class CommissionsPaidProductViewModel
     {
         public IEnumerable<Product> Products { get; set; }
-        public IEnumerable<Associate> Associates { get; set; }
         public IEnumerable<CommissionsPaidProduct> CommissionsPaidProducts { get; set; }
-
+        public IEnumerable<CommissionsPaid> CommissionsPaid { get; set; }
     }
 }

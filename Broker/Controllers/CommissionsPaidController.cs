@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,79 +6,65 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Broker.Models;
-using Broker.ViewModels;
 
 namespace Broker.Controllers
 {
-    public class AssociatesController : Controller
+    public class CommissionsPaidController : Controller
     {
         private readonly MortgageBrokerDbContext _context;
 
-        public AssociatesController(MortgageBrokerDbContext context)
+        public CommissionsPaidController(MortgageBrokerDbContext context)
         {
             _context = context;
         }
 
-        // GET: Associates
+        // GET: CommissionsPaid
         public async Task<IActionResult> Index()
         {
-          
-            AssociateProductViewModel viewModel = new AssociateProductViewModel()
-            {
-                Products= await _context.Products.ToListAsync(),
-                Associates = await _context.Associates.ToListAsync(),
-                CommissionsPaidProducts=await _context.CommissionsPaidProducts.ToListAsync()
-            };
-            return View(viewModel);
+            return View(await _context.CommissionsPaids.ToListAsync());
         }
 
-        // GET: Associates/Details/5
+        // GET: CommissionsPaid/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            AssociateProductViewModel viewModel = new AssociateProductViewModel()
-            {
-                Products = await _context.Products.ToListAsync(),
-                Associates = await _context.Associates.ToListAsync(),
-                CommissionsPaidProducts = await _context.CommissionsPaidProducts.ToListAsync()
-            };
             if (id == null)
             {
                 return NotFound();
             }
 
-            var associate = await _context.Associates
-                .FirstOrDefaultAsync(m => m.AssociateId == id);
-            if (associate == null)
+            var commissionsPaid = await _context.CommissionsPaids
+                .FirstOrDefaultAsync(m => m.CommissionsPaidId == id);
+            if (commissionsPaid == null)
             {
                 return NotFound();
             }
 
-            return View(viewModel);
+            return View(commissionsPaid);
         }
 
-        // GET: Associates/Create
+        // GET: CommissionsPaid/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Associates/Create
+        // POST: CommissionsPaid/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AssociateId,AssociateFirstName,AssociateLastName,Company,DateOfPayment,SplitId")] Associate associate)
+        public async Task<IActionResult> Create([Bind("CommissionsPaidId,DatePaid,CommissionType,PaymentType,ChequeNumber,CreatedDate,CreatedBy,LastUpdateDate,LastUpdatedBy")] CommissionsPaid commissionsPaid)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(associate);
+                _context.Add(commissionsPaid);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(associate);
+            return View(commissionsPaid);
         }
 
-        // GET: Associates/Edit/5
+        // GET: CommissionsPaid/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,22 +72,22 @@ namespace Broker.Controllers
                 return NotFound();
             }
 
-            var associate = await _context.Associates.FindAsync(id);
-            if (associate == null)
+            var commissionsPaid = await _context.CommissionsPaids.FindAsync(id);
+            if (commissionsPaid == null)
             {
                 return NotFound();
             }
-            return View(associate);
+            return View(commissionsPaid);
         }
 
-        // POST: Associates/Edit/5
+        // POST: CommissionsPaid/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AssociateId,AssociateFirstName,AssociateLastName,Company,DateOfPayment,SplitId")] Associate associate)
+        public async Task<IActionResult> Edit(int id, [Bind("CommissionsPaidId,DatePaid,CommissionType,PaymentType,ChequeNumber,CreatedDate,CreatedBy,LastUpdateDate,LastUpdatedBy")] CommissionsPaid commissionsPaid)
         {
-            if (id != associate.AssociateId)
+            if (id != commissionsPaid.CommissionsPaidId)
             {
                 return NotFound();
             }
@@ -111,12 +96,12 @@ namespace Broker.Controllers
             {
                 try
                 {
-                    _context.Update(associate);
+                    _context.Update(commissionsPaid);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AssociateExists(associate.AssociateId))
+                    if (!CommissionsPaidExists(commissionsPaid.CommissionsPaidId))
                     {
                         return NotFound();
                     }
@@ -127,10 +112,10 @@ namespace Broker.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(associate);
+            return View(commissionsPaid);
         }
 
-        // GET: Associates/Delete/5
+        // GET: CommissionsPaid/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,30 +123,30 @@ namespace Broker.Controllers
                 return NotFound();
             }
 
-            var associate = await _context.Associates
-                .FirstOrDefaultAsync(m => m.AssociateId == id);
-            if (associate == null)
+            var commissionsPaid = await _context.CommissionsPaids
+                .FirstOrDefaultAsync(m => m.CommissionsPaidId == id);
+            if (commissionsPaid == null)
             {
                 return NotFound();
             }
 
-            return View(associate);
+            return View(commissionsPaid);
         }
 
-        // POST: Associates/Delete/5
+        // POST: CommissionsPaid/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var associate = await _context.Associates.FindAsync(id);
-            _context.Associates.Remove(associate);
+            var commissionsPaid = await _context.CommissionsPaids.FindAsync(id);
+            _context.CommissionsPaids.Remove(commissionsPaid);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AssociateExists(int id)
+        private bool CommissionsPaidExists(int id)
         {
-            return _context.Associates.Any(e => e.AssociateId == id);
+            return _context.CommissionsPaids.Any(e => e.CommissionsPaidId == id);
         }
     }
 }

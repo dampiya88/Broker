@@ -23,15 +23,13 @@ namespace Broker.Models
         public virtual DbSet<CommissionsPaid> CommissionsPaids { get; set; }
         public virtual DbSet<CommissionsPaidProduct> CommissionsPaidProducts { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-     
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                //optionsBuilder.UseSqlServer("Data Source=desktop-khq3vne\\sqlexpress; Initial Catalog=MortgageBrokerDb;Integrated Security=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-KHQ3VNE\\SQLEXPRESS;Database=MortgageBrokerDb;Trusted_Connection=True;");
             }
         }
 
@@ -64,7 +62,9 @@ namespace Broker.Models
 
                 entity.Property(e => e.CommissionSplitId).HasColumnName("CommissionSplitID");
 
-                entity.Property(e => e.CreatedBy).HasColumnType("date");
+                entity.Property(e => e.CreatedBy)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CreatedDate).HasColumnType("date");
 
@@ -81,6 +81,12 @@ namespace Broker.Models
                     .HasForeignKey(d => d.AssociateId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_AssociateCommissions_Associates");
+
+                entity.HasOne(d => d.CommissionSplit)
+                    .WithMany(p => p.AssociateCommissions)
+                    .HasForeignKey(d => d.CommissionSplitId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AssociateCommissions_CommissionSplits");
             });
 
             modelBuilder.Entity<CommissionSplit>(entity =>
@@ -129,7 +135,9 @@ namespace Broker.Models
 
                 entity.Property(e => e.CommissionsPaidId).HasColumnName("CommissionsPaidID");
 
-                entity.Property(e => e.CreatedBy).HasColumnType("date");
+                entity.Property(e => e.CreatedBy)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CreatedDate).HasColumnType("date");
 
@@ -146,6 +154,11 @@ namespace Broker.Models
                     .HasForeignKey(d => d.CommissionsPaidId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CommissionsPaidProducts_CommissionsPaid");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.CommissionsPaidProducts)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_CommissionsPaidProducts_Products");
             });
 
             modelBuilder.Entity<Product>(entity =>
