@@ -1,4 +1,4 @@
-﻿@model Broker.Models.CommissionsPaidProduct
+﻿@model Broker.ViewModels.CommissionsPaidProductViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,46 +13,93 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CommissionsPaidProductId" class="control-label"></label>
-                <input asp-for="CommissionsPaidProductId" class="form-control" />
-                <span asp-validation-for="CommissionsPaidProductId" class="text-danger"></span>
+                <label asp-for="CommissionsPaid.CommissionsPaidId" class="control-label"></label>
+                <input asp-for="CommissionsPaid.CommissionsPaidId" class="form-control" />
+                <span asp-validation-for="CommissionsPaid.CommissionsPaidId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CommissionsPaidId" class="control-label"></label>
-                <select asp-for="CommissionsPaidId" class ="form-control" asp-items="ViewBag.CommissionsPaidId"></select>
+                <label asp-for="CommissionsPaidProduct.CommissionsPaidProductId" class="control-label"></label>
+                <input asp-for="CommissionsPaidProduct.CommissionsPaidProductId" class="form-control" />
+                <span asp-validation-for="CommissionsPaidProduct.CommissionsPaidProductId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductId" class="control-label"></label>
-                <select asp-for="ProductId" class ="form-control" asp-items="ViewBag.ProductId"></select>
+                <label asp-for="Associate.AssociateLastName" class="control-label"></label>
+                <input asp-for="Associate.AssociateLastName" class="form-control" />
+                <span asp-validation-for="Associate.AssociateLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Commission" class="control-label"></label>
-                <input asp-for="Commission" class="form-control" />
-                <span asp-validation-for="Commission" class="text-danger"></span>
+                <label asp-for="Product.ApplicationNumber" class="control-label"></label>
+                <input asp-for="Product.ApplicationNumber" class="form-control" />
+                <span asp-validation-for="Product.ApplicationNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                <label asp-for="Product.DateFunded" class="control-label"></label>
+                <input asp-for="Product.DateFunded" class="form-control" />
+                <span asp-validation-for="Product.DateFunded" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
-                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+                <label asp-for="Product.ProductDescription" class="control-label"></label>
+                <input asp-for="Product.ProductDescription" class="form-control" />
+                <span asp-validation-for="Product.ProductDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastUpdateDate" class="control-label"></label>
-                <input asp-for="LastUpdateDate" class="form-control" />
-                <span asp-validation-for="LastUpdateDate" class="text-danger"></span>
+                <label asp-for="Product.Term" class="control-label"></label>
+                <input asp-for="Product.Term" class="form-control" />
+                <span asp-validation-for="Product.Term" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastUpdatedBy" class="control-label"></label>
-                <input asp-for="LastUpdatedBy" class="form-control" />
-                <span asp-validation-for="LastUpdatedBy" class="text-danger"></span>
+                <label asp-for="Product.MortgageAmount" class="control-label"></label>
+                <input asp-for="Product.MortgageAmount" class="form-control" />
+                <span asp-validation-for="Product.MortgageAmount" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Product.TotalFileCommissions" class="control-label"></label>
+                <input asp-for="Product.TotalFileCommissions" class="form-control" />
+                <span asp-validation-for="Product.TotalFileCommissions" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="CommissionsPaid." class="control-label"></label>
+                <input asp-for="Product.TotalFileCommissions" class="form-control" />
+                <span asp-validation-for="Product.TotalFileCommissions" class="text-danger"></span>
+            </div>*@
+
+            @*<div class="form-group">
+                <label asp-for="CommissionsPaid.CommissionsPaidId" class="control-label"></label>
+                <select asp-for="CommissionsPaid.CommissionsPaidId" class="form-control" asp-items="ViewBag.CommissionsPaidId"></select>
+            </div>*@
+            @*<div class="form-group">
+            <label asp-for="ProductId" class="control-label"></label>
+            <select asp-for="ProductId" class ="form-control" asp-items="ViewBag.ProductId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Commission" class="control-label"></label>
+            <input asp-for="Commission" class="form-control" />
+            <span asp-validation-for="Commission" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreatedDate" class="control-label"></label>
+            <input asp-for="CreatedDate" class="form-control" />
+            <span asp-validation-for="CreatedDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreatedBy" class="control-label"></label>
+            <input asp-for="CreatedBy" class="form-control" />
+            <span asp-validation-for="CreatedBy" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastUpdateDate" class="control-label"></label>
+            <input asp-for="LastUpdateDate" class="form-control" />
+            <span asp-validation-for="LastUpdateDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastUpdatedBy" class="control-label"></label>
+            <input asp-for="LastUpdatedBy" class="form-control" />
+            <span asp-validation-for="LastUpdatedBy" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
         </form>
     </div>
 </div>

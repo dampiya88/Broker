@@ -8,8 +8,10 @@ namespace Broker.ViewModels
 {
     public class CommissionsPaidProductViewModel
     {
-        public IEnumerable<Product> Products { get; set; }
-        public IEnumerable<CommissionsPaidProduct> CommissionsPaidProducts { get; set; }
-        public IEnumerable<CommissionsPaid> CommissionsPaid { get; set; }
+        public Product Product { get; set; }
+        public CommissionsPaidProduct CommissionsPaidProduct { get; set; }
+        public AssociateCommission AssociateCommission { get; set; }
+        public CommissionsPaid CommissionsPaid { get; set; }
+        public Associate Associate { get; set; }
     }
 }

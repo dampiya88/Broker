@@ -50,6 +50,7 @@ namespace Broker.Controllers
         {
             ViewData["CommissionsPaidId"] = new SelectList(_context.CommissionsPaids, "CommissionsPaidId", "CommissionsPaidId");
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            ViewData["AssoicateId"] = new SelectList(_context.Associates,"AssociateId", "AssociateId");
             return View();
         }
 
