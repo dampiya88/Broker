@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Create";
 }
-<h4>Create mortgage</h4>
+<h4>Create Mortgage</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -11,7 +11,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AssociateId" class="control-label">Associate Name</label>
-                <select asp-for="AssociateId" class ="form-control" asp-items="ViewBag.AssociateId"></select>
+                <select asp-for="AssociateId" class="form-control" asp-items="ViewBag.AssociateId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ApplicationNumber" class="control-label">Application Number</label>
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DateFunded" class="control-label">Date Funded</label>
-                <input asp-for="DateFunded" class="form-control"  />
+                <input asp-for="DateFunded" class="form-control" />
                 <span asp-validation-for="DateFunded" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -73,9 +73,11 @@
                 <input asp-for="LastUpdatedBy" class="form-control" />
                 <span asp-validation-for="LastUpdatedBy" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+           
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            
         </form>
     </div>
 </div>
