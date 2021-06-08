@@ -24,6 +24,8 @@ namespace Broker.Models
         public virtual DbSet<CommissionsPaidProduct> CommissionsPaidProducts { get; set; }
         public virtual DbSet<Product> Products { get; set; }
 
+      
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -99,8 +101,9 @@ namespace Broker.Models
                 entity.ToTable("CommissionsPaid");
 
                 entity.Property(e => e.CommissionsPaidId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("CommissionsPaidID");
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("CommissionsPaidID")
+                    ;
 
                 entity.Property(e => e.CommissionType)
                     .HasMaxLength(50)

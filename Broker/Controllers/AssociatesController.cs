@@ -23,25 +23,24 @@ namespace Broker.Controllers
         // GET: Associates
         public async Task<IActionResult> Index()
         {
-          
+           
+
+
             AssociateProductViewModel viewModel = new AssociateProductViewModel()
             {
                 Products= await _context.Products.ToListAsync(),
                 Associates = await _context.Associates.ToListAsync(),
-                CommissionsPaidProducts=await _context.CommissionsPaidProducts.ToListAsync()
-            };
+                CommissionsPaidProducts=await _context.CommissionsPaidProducts.ToListAsync(),
+
+
+
+        };
             return View(viewModel);
         }
 
         // GET: Associates/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            AssociateProductViewModel viewModel = new AssociateProductViewModel()
-            {
-                Products = await _context.Products.ToListAsync(),
-                Associates = await _context.Associates.ToListAsync(),
-                CommissionsPaidProducts = await _context.CommissionsPaidProducts.ToListAsync()
-            };
             if (id == null)
             {
                 return NotFound();
@@ -54,7 +53,7 @@ namespace Broker.Controllers
                 return NotFound();
             }
 
-            return View(viewModel);
+            return View(associate);
         }
 
         // GET: Associates/Create

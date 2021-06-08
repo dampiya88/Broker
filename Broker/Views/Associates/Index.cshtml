@@ -1,20 +1,31 @@
 ﻿@model Broker.ViewModels.AssociateProductViewModel
 
 
+
 @{
     ViewData["Title"] = "Index";
 }
-
-<h4>Associate Profiles</h4>
-<form asp-action="Index" method="get">
-    <div><p>Find Associate:<input type="text" name="searchingString" value=""/>
-                            <input type="submit" value="Search" class="btn btn-primary"/>
-                            <a asp-action="Index">Remove Filter</a>
+<div class="row">
+    <div class="col-4">
+        <h4>Associate Profiles</h4>
+    </div>
+    <div class="col-4">
+        <p>
+            <a asp-action="Create">Create New Associate</a>
         </p>
-        </div> </form>
-<p>
-    <a asp-action="Create">Create New Associate</a>
-</p>
+    </div>
+</div>
+
+<form asp-action="Index" method="get">
+    <div>
+        <p>
+            Find Associate:<input type="text" name="searchingString" value="" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <a asp-action="Index">Remove Filter</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -30,20 +41,15 @@
             <th>
                 <label>Current Commission Split</label>
             </th>
-            <th>
-                <label>YTD Total Sales</label>
-            </th>
-            <th>
-                <label>YTD Total File Commissons</label>
-            </th>
-            <th>
-                <label>YTD Total Agent Commissions</label>
-            </th>
+
 
             <th></th>
         </tr>
     </thead>
     <tbody>
+        <tr>
+
+        
         @foreach (var item in Model.Associates)
         {
         <tr>
@@ -59,25 +65,26 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SplitId)
             </td>
-            <td>
-                @Model.Products.Sum(s => s.MortgageAmount)
-            </td>
-            <td>
-                @Model.Products.Sum(s => s.TotalFileCommissions)
-            </td>
-            <td>
-                @Model.Products.Sum(s => s.TotalFileCommissions* item.SplitId/100)
-            </td>
-
-
-            <td>
+           <td>
                 <a asp-action="Edit" asp-route-id="@item.AssociateId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.AssociateId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.AssociateId">Delete</a>
             </td>
         </tr>
         }
-       
-        </tbody>
 
-      </table>
+    </tr>
+    </tbody>
+
+    </table>
+
+
+    @*<th>
+        <label>YTD Total Sales</label>
+    </th>
+    <th>
+        <label>YTD Total File Commissons</label>
+    </th>
+    <th>
+        <label>YTD Total Agent Commissions</label>
+    </th>*@

@@ -3,75 +3,81 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="row">
+    <div class="col-4">
+        <h4>Paid Commission Stubs</h4>
+    </div>
+    <div class="col-4">
+        <p>
+            <a asp-action="Create">Create a commission Stub</a>
+        </p>
+    </div>
+</div>
 
-<h4>Paid Commissions List</h4>
-
-<p>
-    <a asp-action="Create">Pay a commission</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DatePaid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CommissionType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaymentType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChequeNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdatedBy)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatePaid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommissionType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChequeNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CommissionsPaidId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CommissionsPaidId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CommissionsPaidId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePaid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommissionType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ChequeNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastUpdateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastUpdatedBy)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatePaid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommissionType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ChequeNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastUpdateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CommissionsPaidId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.CommissionsPaidId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CommissionsPaidId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

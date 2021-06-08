@@ -28,6 +28,9 @@
                 <label @Html.DisplayNameFor(model => model.BorrowerName)>Borrower Name</label>
             </th>
             <th>
+                <label @Html.DisplayNameFor(model => model.Associate)>Associate Name</label>
+            </th>
+            <th>
                 <label @Html.DisplayNameFor(model => model.Term)>Term</label>
             </th>
             <th>
@@ -45,9 +48,7 @@
             <th>
                 <label @Html.DisplayNameFor(model => model.LastUpdatedBy)>Last Updated By</label>
             </th>
-            <th>
-               <label @Html.DisplayNameFor(model => model.Associate)>Associate Name</label> 
-            </th>
+
 
 
         </tr>
@@ -63,8 +64,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BorrowerName)
             </td>
-
-
+            <td>
+                @Html.DisplayFor(modelItem => item.Associate.AssociateFirstName)
+                @Html.DisplayFor(modelItem => item.Associate.AssociateLastName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Term)
             </td>
@@ -85,10 +88,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastUpdatedBy)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Associate.AssociateFirstName)
-                @Html.DisplayFor(modelItem => item.Associate.AssociateLastName)
-            </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
             </td>

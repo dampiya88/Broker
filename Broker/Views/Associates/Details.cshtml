@@ -1,84 +1,69 @@
-﻿@model Broker.ViewModels.AssociateProductViewModel
+﻿@model Broker.Models.Associate
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <h4>Associate Details</h4>
-<hr />
+
 <dl class="row">
-    @foreach (var item in Model.Associates)
-    {
-        <dt class="col-sm-2">
-            <label @Html.DisplayFor(modelItem => item.AssociateFirstName)>First Name</label>
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(modelItem => item.AssociateFirstName)
-        </dd>
-        <dt class="col-sm-2">
-            <label @Html.DisplayNameFor(modelItem => item.AssociateLastName)>Last Name</label>
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(modelItem => item.AssociateLastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(modelItem => item.Company)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(modelItem => item.Company)
-        </dd>
+    <dt class="col-sm-2">
+        <label @Html.DisplayNameFor(model => model.AssociateId)>Associate ID</label>
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.AssociateId)
+    </dd>
+    <dt class="col-sm-2">
+        <label @Html.DisplayFor(model=> model.AssociateFirstName)>First Name</label>
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.AssociateFirstName)
+    </dd>
+    <dt class="col-sm-2">
+        <label @Html.DisplayNameFor(model=> model.AssociateLastName)>Last Name</label>
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.AssociateLastName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Company)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Company)
+    </dd>
 
-        <dt class="col-sm-2">
-            <label @Html.DisplayNameFor(modelItem => item.SplitId)>Split Percentage</label>
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(modelItem => item.SplitId)
-        </dd>
-
-    }
+    <dt class="col-sm-2">
+        <label @Html.DisplayNameFor(model => model.SplitId)>Split Percentage</label>
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.SplitId)
+    </dd>
 </dl>
-<div>
+    <hr />
+    <div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    <label>Mortgage Id</label>
-                </th>
-                <th>
-                    <label>Mortgage Amount</label>
-                </th>
-                <th>
-                    <label>Total Commission</label>
-                </th>
-                <th>
-                    <label>Commission paid</label>
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.CommissionsPaidProducts)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CommissionsPaidProductId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Product)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Commission)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CommissionsPaid)
-                    </td>
+                    <th>
+                        <label>Mortgage Application Number</label>
+                    </th>
+                    <th>
+                        <label>Mortgage Amount</label>
+                    </th>
+                    <th>
+                        <label>Total Commission</label>
+                    </th>
+                    <th>
+                        <label>Commission paid</label>
+                    </th>
+                    <th></th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+            </tbody>
 
-        </tbody>
-
-    </table>
-    <a asp-action="Edit" asp-route-id="@Model.CommissionsPaidProducts">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        </table>
+       
+        <a asp-action="Index">Back to List</a>
+    </div>
