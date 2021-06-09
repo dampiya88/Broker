@@ -41,50 +41,45 @@
             <th>
                 <label>Current Commission Split</label>
             </th>
-
-
+            <th>
+                <label>YTD Total Sales</label>
+            </th>
+            <th>
+                <label>YTD Total File Commissons</label>
+            </th>
+            <th>
+                <label>YTD Total Agent Commissions</label>
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-
         
-        @foreach (var item in Model.Associates)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssociateFirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssociateLastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Company)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SplitId)
-            </td>
-           <td>
-                <a asp-action="Edit" asp-route-id="@item.AssociateId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AssociateId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AssociateId">Delete</a>
-            </td>
-        </tr>
-        }
+            @foreach (var item in Model.Associates)
+            { <tr>
 
-    </tr>
-    </tbody>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssociateFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssociateLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Company)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SplitId)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AssociateId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.AssociateId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AssociateId">Delete</a>
+                    </td>
+                </tr>
+             }
+        </tbody>
+ </table>
 
-    </table>
+  
+   
 
-
-    @*<th>
-        <label>YTD Total Sales</label>
-    </th>
-    <th>
-        <label>YTD Total File Commissons</label>
-    </th>
-    <th>
-        <label>YTD Total Agent Commissions</label>
-    </th>*@
