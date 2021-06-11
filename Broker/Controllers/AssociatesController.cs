@@ -23,15 +23,9 @@ namespace Broker.Controllers
         // GET: Associates
         public async Task<IActionResult> Index()
         {
+            var mortgageBrokerDbContext = _context.Associates.Include(p => p.Products);
+            return View(await mortgageBrokerDbContext.ToListAsync());
             
-            AssociateProductViewModel viewModel = new AssociateProductViewModel()
-            {
-                Products = await _context.Products.ToListAsync(),
-                Associates = await _context.Associates.ToListAsync(),
-                CommissionsPaidProducts = await _context.CommissionsPaidProducts.ToListAsync(),
-                AssociateProductViews = await _context.AssociateProductViews.ToListAsync()
-            };
-            return View(viewModel);
         }
 
         // GET: Associates/Details/5
@@ -39,19 +33,17 @@ namespace Broker.Controllers
         {
             AssociateProductViewModel viewModel = new AssociateProductViewModel()
             {
-                Products = await _context.Products.ToListAsync(),
-                Associates = await _context.Associates.ToListAsync(),
-                CommissionsPaidProducts = await _context.CommissionsPaidProducts.ToListAsync(),
-                AssociateProductViews = await _context.AssociateProductViews.ToListAsync()
+                Products = _context.Products.Where(p => p.AssociateId == id),
+                Associate = await _context.Associates.FirstOrDefaultAsync(m => m.AssociateId == id)
+                
             };
-            
 
             if (id == null)
             {
                 return NotFound();
             }
 
-            var associate = await _context.Associates
+            var associate = await _context.Associates.Include(p => p.Products)
                 .FirstOrDefaultAsync(m => m.AssociateId == id);
             if (associate == null)
             {
@@ -64,6 +56,8 @@ namespace Broker.Controllers
         // GET: Associates/Create
         public IActionResult Create()
         {
+            ViewData["AssociateId"] = new SelectList(_context.Associates, "AssociateId", "AssociateLastName");
+            ViewData["AssociateCommissionId"] = new SelectList(_context.AssociateCommissions, "AssociateCommissionId", "AssociateSplitPortion");
             return View();
         }
 

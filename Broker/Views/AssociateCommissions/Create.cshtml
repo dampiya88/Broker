@@ -13,7 +13,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AssociateId" class="control-label"></label>
-                <select asp-for="AssociateId" class ="form-control" asp-items="ViewBag.AssociateId"></select>
+                <select asp-for="AssociateId" class="form-control" asp-items="ViewBag.AssociateId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommissionSplitId" class="control-label"></label>
+                <select asp-for="CommissionSplitId" class="form-control" asp-items="ViewBag.CommissionSplitId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="AssociateCommission1" class="control-label"></label>
@@ -45,11 +49,7 @@
                 <input asp-for="LastUpdatedBy" class="form-control" />
                 <span asp-validation-for="LastUpdatedBy" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CommissionSplitId" class="control-label"></label>
-                <input asp-for="CommissionSplitId" class="form-control" />
-                <span asp-validation-for="CommissionSplitId" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

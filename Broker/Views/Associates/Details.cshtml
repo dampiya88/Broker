@@ -5,23 +5,14 @@
 }
 
 <h4>Associate Details</h4>
-
-<dl class="row">
-    <dt class="col-sm-2">
-        <label>ID</label>
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.Associates)
-    </dd>
-</dl>            
 <table class="table">
     <thead>
         <tr>
             <th>
-                <label>Application Number</label>
+                <label>Mortgage Application</label>
             </th>
             <th>
-                <label>SplitID</label>
+                <label>Associate Id</label>
             </th>
             <th>
                 <label>Mortgage Amount</label>
@@ -29,18 +20,18 @@
             <th>
                 <label>Total File Commissions</label>
             </th>
-            
+
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.AssociateProductViews)
+        @foreach (var item in Model.Products)
         {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ApplicationNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SplitID)
+                @Html.DisplayFor(modelItem => item.AssociateId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MortgageAmount)
@@ -48,11 +39,25 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TotalFileCommissions)
             </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFileCommissions)
+        </td>*@
 
         </tr>
         }
     </tbody>
-    </table>
+</table>
+<dl class="row">
+    <dt class="col-sm-2">
+        <label>ID</label>
+    </dt>
+    <dd class="col-sm-10">
+        @*@Html.DisplayFor(model => model.AssociateProductViews)*@
+    </dd>
+</dl>            
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

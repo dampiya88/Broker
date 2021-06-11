@@ -49,8 +49,9 @@ namespace Broker.Controllers
         public IActionResult Create()
         {
             ViewData["CommissionsPaidId"] = new SelectList(_context.CommissionsPaids, "CommissionsPaidId", "CommissionsPaidId");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
-            ViewData["AssoicateId"] = new SelectList(_context.Associates,"AssociateId", "AssociateId");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ApplicationNumber");
+            ViewData["AssoicateId"] = new SelectList(_context.Associates,"AssociateId", "AssociateLastName");
+            
             return View();
         }
 
@@ -63,7 +64,10 @@ namespace Broker.Controllers
         {
             if (ModelState.IsValid)
             {
+                _context.CommissionsPaidProducts.FromSqlRaw("SET IDENTITY_INSERT CommissionsPaidProductID ON");
                 _context.Add(commissionsPaidProduct);
+               
+                _context.CommissionsPaidProducts.FromSqlRaw("SET IDENTITY_INSERT CommissionsPaidProductID OFF");
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

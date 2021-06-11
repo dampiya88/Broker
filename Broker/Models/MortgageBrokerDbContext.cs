@@ -41,8 +41,9 @@ namespace Broker.Models
         {
             modelBuilder.Entity<AssociateProductView>(entity =>
          {
-             entity.HasNoKey();
+             
              entity.ToView("AssociateProductView");
+             entity.Property(e => e.AssociateId).HasColumnName("AssociateID");
              entity.Property(e => e.ApplicationNumber).HasColumnName("ApplicationNumber");
              entity.Property(e => e.SplitID).HasColumnName("SplitID");
              entity.Property(e => e.MortgageAmount).HasColumnName("MortgageAmount");

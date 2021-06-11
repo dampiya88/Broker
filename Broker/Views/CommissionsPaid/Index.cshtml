@@ -18,29 +18,30 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.DatePaid)
+                    <label @Html.DisplayNameFor(model => model.DatePaid)>Date Paid</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CommissionType)
+                    <label @Html.DisplayNameFor(model => model.CommissionType)>Commission Type</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PaymentType)
+                    <label @Html.DisplayNameFor(model => model.PaymentType)>Payment Type</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ChequeNumber)
+                    <label @Html.DisplayNameFor(model => model.ChequeNumber)>Cheque Number</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreatedDate)
+                    <label @Html.DisplayNameFor(model => model.CreatedDate)>Created Date</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreatedBy)
+                    <Label @Html.DisplayNameFor(model => model.CreatedBy)>Created By</Label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.LastUpdateDate)
+                    <label @Html.DisplayNameFor(model => model.LastUpdateDate)>Last Update Date</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.LastUpdatedBy)
-                </th>
+                    <label @Html.DisplayNameFor(model => model.LastUpdatedBy)>Last Updated By</label>
+                </th> 
+                
                 <th></th>
             </tr>
         </thead>
@@ -72,6 +73,8 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.LastUpdatedBy)
                     </td>
+                    
+                        
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.CommissionsPaidId">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.CommissionsPaidId">Details</a> |

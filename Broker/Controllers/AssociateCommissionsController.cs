@@ -47,7 +47,8 @@ namespace Broker.Controllers
         // GET: AssociateCommissions/Create
         public IActionResult Create()
         {
-            ViewData["AssociateId"] = new SelectList(_context.Associates, "AssociateId", "AssociateFirstName");
+            ViewData["AssociateId"] = new SelectList(_context.Associates, "AssociateId", "AssociateLastName");
+            ViewData["CommissionSplitId"] = new SelectList(_context.CommissionSplits, "CommissionSplitId", "AssociateSplitPortion");
             return View();
         }
 
@@ -64,7 +65,8 @@ namespace Broker.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AssociateId"] = new SelectList(_context.Associates, "AssociateId", "AssociateFirstName", associateCommission.AssociateId);
+            ViewData["AssociateId"] = new SelectList(_context.Associates, "AssociateId", "AssociateLastName", associateCommission.AssociateId);
+            ViewData["CommissionSplitId"] = new SelectList(_context.CommissionSplits, "CommissionSplitId", "AssociateSplitPortion", associateCommission.CommissionSplitId);
             return View(associateCommission);
         }
 

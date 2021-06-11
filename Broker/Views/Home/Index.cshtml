@@ -10,14 +10,15 @@
 <body>
         <div class="container text-center">
         <div class="row content">
-            <div class="col-sm-4 sidenav">
-                <p><a asp-area="" asp-controller="CommissionsPaid" asp-action="Create">Create a new Commission Stub</a></p>
-                <p><a asp-area="" asp-controller="Associates" asp-action="Create">Create a new Associate</a></p>
-                <p><a asp-area="" asp-controller="Products" asp-action="Create"> Create a new Mortgage</a></p>
-            </div>
+            <div class="col-sm-12 sidenav">
+                <h4>Welcome to Commission Tracker</h4>
+                <p>Please follow the links to start entering information</p>
+                <button type="button" class="btn btn-outline-primary" aria-pressed="true"><a class="nav-link" asp-area="" asp-controller="CommissionsPaid" asp-action="Create">Create a new Commission Stub</a></button>
+                <button type="button" class="btn btn-outline-primary" aria-pressed="true"><a class="nav-link" asp-area="" asp-controller="Associates" asp-action="Create">Create a new Associate</a></button>
+                <button type="button" class="btn btn-outline-primary" aria-pressed="true"><a class="nav-link" asp-area="" asp-controller="Products" asp-action="Create"> Create a new Mortgage</a></button>
+</div>
             <div class="col-sm-8 text-left">
-                <h1>Welcome to Commission Tracker</h1>
-                <p>Follow links to start entering information</p>
+                
             </div>
         </div>
     </div>

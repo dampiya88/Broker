@@ -11,6 +11,7 @@ namespace Broker.Controllers
 {
     public class CommissionsPaidController : Controller
     {
+        
         private readonly MortgageBrokerDbContext _context;
 
         public CommissionsPaidController(MortgageBrokerDbContext context)
@@ -45,6 +46,8 @@ namespace Broker.Controllers
         // GET: CommissionsPaid/Create
         public IActionResult Create()
         {
+            ViewData["AssociateId"] = new SelectList(_context.Associates, "AssociateId", "AssociateLastName");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ApplicationNumber");
             return View();
         }
 
@@ -53,14 +56,16 @@ namespace Broker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CommissionsPaidId,DatePaid,CommissionType,PaymentType,ChequeNumber,CreatedDate,CreatedBy,LastUpdateDate,LastUpdatedBy")] CommissionsPaid commissionsPaid)
+        public async Task<IActionResult> Create([Bind("CommissionsPaidId,DatePaid,CommissionType,PaymentType,ChequeNumber,CreatedDate,CreatedBy,LastUpdateDate,LastUpdatedBy")] CommissionsPaid commissionsPaid,[Bind("ProductId,AssociateId,ApplicationNumber,DateFunded,BorrowerName,TransactionType,ProductDescription,Term,MortgageAmount,TotalFileCommissions,CreatedDate,CreatedBy,LastUpdateDate,LastUpdatedBy")] Product product)
         {
             if (ModelState.IsValid)
             {
+                _context.Add(product);
                 _context.Add(commissionsPaid);
-                await _context.SaveChangesAsync();
+               await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(commissionsPaid);
         }
 

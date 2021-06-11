@@ -9,92 +9,81 @@
    
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <form asp-action="Create">
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="AssociateCommission.AssociateId" class="control-label">Associate Name</label>
+                    <select asp-for="AssociateCommission.AssociateId" class="form-control" asp-items="ViewBag.AssociateId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.ApplicationNumber" class="control-label">Application Number</label>
+                    <select asp-for="Product.ApplicationNumber" class="form-control" asp-items="ViewBag.AssociateId"></select>
+                </div>
+            </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label asp-for="Product.Term" class="control-label">Term</label>
+                        <input asp-for="Product.Term" class="form-control" />
+                        <span asp-validation-for="Product.Term" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label asp-for="Product.MortgageAmount" class="control-label">Mortgage Amount</label>
+                        <input asp-for="Product.MortgageAmount" class="form-control" />
+                        <span asp-validation-for="Product.MortgageAmount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Product.TotalFileCommissions" class="control-label">Total File Commissions</label>
+                        <input asp-for="Product.TotalFileCommissions" class="form-control" />
+                        <span asp-validation-for="Product.TotalFileCommissions" class="text-danger"></span>
+                    </div>
 
-            <div class="col-4">
-                <div class="form-group">
-                    <label asp-for="Associate.AssociateLastName" class="control-label">Associate Last Name</label>
-                    <input asp-for="Associate.AssociateLastName" class="form-control" />
-                    <span asp-validation-for="Associate.AssociateLastName" class="text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.ChequeNumber" class="control-label">Cheque Number</label>
+                        <input asp-for="CommissionsPaid.ChequeNumber" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.ChequeNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.CommissionType" class="control-label">Commission Type</label>
+                        <input asp-for="CommissionsPaid.CommissionType" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.CommissionType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.PaymentType" class="control-label">Payment Type</label>
+                        <input asp-for="CommissionsPaid.PaymentType" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.PaymentType" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Product.ApplicationNumber" class="control-label">Mortgage Application Number</label>
-                    <input asp-for="Product.ApplicationNumber" class="form-control" />
-                    <span asp-validation-for="Product.ApplicationNumber" class="text-danger"></span>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.DatePaid" class="control-label">Date Paid</label>
+                        <input asp-for="CommissionsPaid.DatePaid" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.DatePaid" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.CreatedDate" class="control-label">Created Date</label>
+                        <input asp-for="CommissionsPaid.CreatedDate" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.CreatedDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.CreatedBy" class="control-label">Created By</label>
+                        <input asp-for="CommissionsPaid.CreatedBy" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.CreatedBy" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.LastUpdateDate" class="control-label">Last Updated Date</label>
+                        <input asp-for="CommissionsPaid.LastUpdateDate" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.LastUpdateDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CommissionsPaid.LastUpdatedBy" class="control-label">Last Updated By</label>
+                        <input asp-for="CommissionsPaid.LastUpdatedBy" class="form-control" />
+                        <span asp-validation-for="CommissionsPaid.LastUpdatedBy" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Product.DateFunded" class="control-label">Date Funded</label>
-                    <input asp-for="Product.DateFunded" class="form-control" />
-                    <span asp-validation-for="Product.DateFunded" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.ProductDescription" class="control-label">Product Description</label>
-                    <input asp-for="Product.ProductDescription" class="form-control" />
-                    <span asp-validation-for="Product.ProductDescription" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.Term" class="control-label">Term</label>
-                    <input asp-for="Product.Term" class="form-control" />
-                    <span asp-validation-for="Product.Term" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label asp-for="Product.MortgageAmount" class="control-label">Mortgage Amount</label>
-                    <input asp-for="Product.MortgageAmount" class="form-control" />
-                    <span asp-validation-for="Product.MortgageAmount" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.TotalFileCommissions" class="control-label">Total File Commissions</label>
-                    <input asp-for="Product.TotalFileCommissions" class="form-control" />
-                    <span asp-validation-for="Product.TotalFileCommissions" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.ChequeNumber" class="control-label">Cheque Number</label>
-                    <input asp-for="CommissionsPaid.ChequeNumber" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.ChequeNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.CommissionType" class="control-label">Commission Type</label>
-                    <input asp-for="CommissionsPaid.CommissionType" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.CommissionType" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.PaymentType" class="control-label">Payment Type</label>
-                    <input asp-for="CommissionsPaid.PaymentType" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.PaymentType" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.DatePaid" class="control-label">Date Paid</label>
-                    <input asp-for="CommissionsPaid.DatePaid" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.DatePaid" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.CreatedDate" class="control-label">Created Date</label>
-                    <input asp-for="CommissionsPaid.CreatedDate" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.CreatedDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.CreatedBy" class="control-label">Created By</label>
-                    <input asp-for="CommissionsPaid.CreatedBy" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.CreatedBy" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.LastUpdateDate" class="control-label">Last Updated Date</label>
-                    <input asp-for="CommissionsPaid.LastUpdateDate" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.LastUpdateDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CommissionsPaid.LastUpdatedBy" class="control-label">Last Updated By</label>
-                    <input asp-for="CommissionsPaid.LastUpdatedBy" class="form-control" />
-                    <span asp-validation-for="CommissionsPaid.LastUpdatedBy" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </div>
         </form>
 </div>
 
