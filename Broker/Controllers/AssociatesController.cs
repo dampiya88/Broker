@@ -57,7 +57,8 @@ namespace Broker.Controllers
         public IActionResult Create()
         {
             ViewData["AssociateId"] = new SelectList(_context.Associates, "AssociateId", "AssociateLastName");
-            ViewData["AssociateCommissionId"] = new SelectList(_context.AssociateCommissions, "AssociateCommissionId", "AssociateSplitPortion");
+            ViewData["AssociateCommissionId"] = new SelectList(_context.AssociateCommissions, "AssociateCommissionId", "AssociateCommissionId");
+            ViewData["CommissionSplitId"] = new SelectList(_context.CommissionSplits, "CommissionSplitId", "AssociateSplitPortion");
             return View();
         }
 
@@ -66,7 +67,7 @@ namespace Broker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AssociateId,AssociateFirstName,AssociateLastName,Company,DateOfPayment,SplitId")] Associate associate)
+        public async Task<IActionResult> Create([Bind("AssociateId,AssociateFirstName,AssociateLastName,Company,SplitId")] Associate associate, [Bind("CommissionSplitId,AssociateSplitPortion")] CommissionSplit commissionSplit)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +75,8 @@ namespace Broker.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
+
             return View(associate);
         }
 

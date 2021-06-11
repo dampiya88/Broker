@@ -32,9 +32,9 @@
             <th>
                 <label>Company</label>
             </th>
-            <th>
+            @*<th>
                 <label>Current Commission Split</label>
-            </th>
+            </th>*@
 
             <th></th>
         </tr>
@@ -54,9 +54,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Company)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SplitId)
-                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.AssociateCommissions)
+                </td>*@
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.AssociateId">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.AssociateId">Details</a> |

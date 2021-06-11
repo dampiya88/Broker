@@ -1,4 +1,4 @@
-﻿@model Broker.Models.Associate
+﻿@model Broker.ViewModels.AssociateCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -10,24 +10,24 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="AssociateFirstName" class="control-label">First Name</label>
-                <input asp-for="AssociateFirstName" class="form-control" />
-                <span asp-validation-for="AssociateFirstName" class="text-danger"></span>
+                <label asp-for="Associate.AssociateFirstName" class="control-label">First Name</label>
+                <input asp-for="Associate.AssociateFirstName" class="form-control" />
+                <span asp-validation-for="Associate.AssociateFirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AssociateLastName" class="control-label">Last Name</label>
-                <input asp-for="AssociateLastName" class="form-control" />
-                <span asp-validation-for="AssociateLastName" class="text-danger"></span>
+                <label asp-for="Associate.AssociateLastName" class="control-label">Last Name</label>
+                <input asp-for="Associate.AssociateLastName" class="form-control" />
+                <span asp-validation-for="Associate.AssociateLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Company" class="control-label">Company</label>
-                <input asp-for="Company" class="form-control" />
-                <span asp-validation-for="Company" class="text-danger"></span>
+                <label asp-for="Associate.Company" class="control-label">Company</label>
+                <input asp-for="Associate.Company" class="form-control" />
+                <span asp-validation-for="Associate.Company" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AssociateCommissions" class="control-label">Split Percentage</label>
-                <select asp-for="AssociateCommissions" class="form-control" asp-items="ViewBag.CommissionSplitId"></select>
-                <span asp-validation-for="AssociateCommissions" class="text-danger"></span>
+                <label asp-for="AssociateCommission.CommissionSplitId" class="control-label">Split Percentage</label>
+                <select asp-for="AssociateCommission.CommissionSplitId" class="form-control" asp-items="ViewBag.CommissionSplitId"></select>
+                <span asp-validation-for="AssociateCommission.CommissionSplitId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

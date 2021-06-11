@@ -13,5 +13,7 @@ namespace Broker.ViewModels
         public Associate Associate { get; set; }
         public IEnumerable<CommissionsPaidProduct> CommissionsPaidProducts { get; set; }
         public IEnumerable<AssociateProductView> AssociateProductViews { get; set; }
+        public CommissionSplit CommissionSplit { get; set; }
+
     }
 }

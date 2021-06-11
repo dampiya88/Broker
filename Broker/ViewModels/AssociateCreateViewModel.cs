@@ -11,6 +11,5 @@ namespace Broker.ViewModels
         public Associate Associate { get; set; }
         public AssociateCommission AssociateCommission { get; set; }
         public CommissionSplit CommissionSplit { get; set; }
-        public List<CommissionSplit> CommissionSplits { get; set; }
     }
 }
